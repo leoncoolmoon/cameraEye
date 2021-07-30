@@ -1,3 +1,16 @@
+var canvas1 = document.getElementById('video1');
+var canvas = document.getElementById('video2');
+var ctx1    = canvas1.getContext('2d');
+var ctx    = canvas.getContext('2d');
+var video  = document.getElementById('video');
+
+const videoElement = document.querySelector('video');
+const audioInputSelect = document.querySelector('select#audioSource');
+const audioOutputSelect = document.querySelector('select#audioOutput');
+const videoSelect = document.querySelector('select#videoSource');
+const selectors = [audioInputSelect, audioOutputSelect, videoSelect];
+
+
 window.onload = () => {
   'use strict';
 
@@ -6,21 +19,7 @@ window.onload = () => {
              .register('./sw.js');
   }
 }
-const videoElement = document.querySelector('video');
-const audioInputSelect = document.querySelector('select#audioSource');
-const audioOutputSelect = document.querySelector('select#audioOutput');
-const videoSelect = document.querySelector('select#videoSource');
-const selectors = [audioInputSelect, audioOutputSelect, videoSelect];
 
-audioOutputSelect.disabled = !('sinkId' in HTMLMediaElement.prototype);
-
-
-
-var canvas1 = document.getElementById('video1');
-var canvas = document.getElementById('video2');
-var ctx1    = canvas1.getContext('2d');
-var ctx    = canvas.getContext('2d');
-var video  = document.getElementById('video');
 
 video.addEventListener('play', function () {
     var $this = this; //cache
@@ -37,9 +36,12 @@ video.addEventListener('play', function () {
     })();
 }, 0);
 
+audioOutputSelect.disabled = !('sinkId' in HTMLMediaElement.prototype);
 
 
-
+function enableMute() { 
+    video.muted =  !video.muted;
+}
 
 function gotDevices(deviceInfos) {
   // Handles being called several times to update labels. Preserve values.
@@ -131,7 +133,5 @@ function start() {
 
 audioInputSelect.onchange = start;
 audioOutputSelect.onchange = changeAudioDestination;
-
 videoSelect.onchange = start;
-
 start();
