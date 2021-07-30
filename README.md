@@ -4,7 +4,7 @@ you can use it as a telescope; </br>
 you can use it as a magnifying/reading  glasses; </br>
 you can use it to watch video/navigation while doing other activity;(you may feel dizzzzzzzzzzzzzzzzzzy.)</br>
 you can use it as a hearing aid;</br>
-you can use it as ...
+you can use it as ...</br>
 All you need is your smartphone, a 3d goggle and a earphone.(may be a powerbank)</br>
 
 
