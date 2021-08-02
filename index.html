@@ -13,7 +13,7 @@
         div.select {
             display: inline-block;
         }
-		.container {width:50%;
+		.container {
 			background: black;
 			display: flex;
 			align-items: center;
@@ -33,9 +33,37 @@
         label {
             display: inline-block;
         }	
+		#c1{
+			position: absolute;
+			z-index: -1;
+			height: 5%;
+		}	
+		.vedioV{
+			max-width: -webkit-fill-available;
+				ASPECT-RATIO: AUTO;
+		}			
+		@media (orientation: landscape) {
+			#c2{
+				width:50%;
+			}
+			#c3{
+				z-index: 99;
+				width:50%;
+			}
+		}
+		@media (orientation: portrait) {
+			#c2{
+				width:100%;
+			}
+			#c3{
+			position: absolute;
+				z-index: -1;
+				width:0%;
+			}
+		}
 	 </style>
 </head>
-<body>
+<body style="background:black;">
 <div id="setup" style="background: black;"> 
 	<div class="select">
         <label for="audioSource">Audio input source: </label><select id="audioSource"></select>
@@ -51,12 +79,15 @@
        title="View source for this page on GitHub" id="viewSource">View source on GitHub</a>
 </div>
 <div class="out_container">
-	<div class="container" >
-		<canvas id="video1" ></canvas>
-		<video id="video" playsinline autoplay controls muted style = "position: absolute; z-index: -1;" ></video>  
+	<div class="container" id = "c1">
+		<video id="video" playsinline autoplay controls muted  ></video>  
+	</div>
+	<div class="container" id = "c2">
+		<canvas class="vedioV" id="video1" ></canvas>
+		
 </div>
-	<div class="container" >
-		<canvas id="video2" ></canvas>
+	<div class="container" id = "c3">
+		<canvas class="vedioV" id="video2" ></canvas>
 	</div>
 </div>
 <script src="main.js"></script>
